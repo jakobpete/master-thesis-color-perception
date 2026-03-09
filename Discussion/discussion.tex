@@ -1,0 +1,49 @@
+Basis for the investigations of this project is the quality of the elicited data. Split half ARI was sufficiently high across the whole data set. Furthermore, a comparison with \textcite{lindseyColor2014}'s lab experiment and the data collected using Prolific as a traditional recruiter shows high ARI and therefore allows to relate the data sets to each other.
+
+The Lucid data show higher overall ARI than the WCS dataset indicating a higher homogeneity across the languages. Newly examined languages use a higher number of color terms on average which is conform with the hypothesis of \textcite{berlinBasic1969} that languages develop new color terms when getting in touch with industrialized languages such as English.
+
+In the single languages the white category was observed to be very small or absent which is due to the procedure of the experiment. The condition of the blue category was able to categorize most of the differences across languages. Using a MDS the languages were divided into a grue category, consisting solely of Vietnamese, the blue group of languages containing a large blue category and a light blue cluster with the blue category divided into a blue and a light blue category.
+
+Investigations on the GPT4 data showed fundamental differences to the Lucid data. However, the relative positions of the languages within the batches are correlated for both GPT4 and GPT4-V. The comparison between individual languages showed a high overlap in the color terms used between GPT4 and Lucid data, even though GPT4 always used more specific color terms. Apparently, for many languages, GPT4 used loanwords from the English vocabulary to name niche colors like mint. This suggests a certain blurring of languages in GPT4's language production. The global and local entropy was then discovered to be responsible for much of the clustering in the MDS (Lucid-GPT4). For GPT4 and GPT4-V we saw very high global entropy reflecting what was stated above and low local entropy, which indicates a deterministic answering mechanism for GPT4. As expected, global entropy was higher in the Lucid dataset of industrialized languages, compared to the WCS languages, mostly unwritten languages. Local entropy was higher for the WCS but overlapped with the Lucid data. This means that the data sets are fundamentally different but still similar enough to form continuing and comparable data. Despite the differences, the number of color terms was correlated across GPT4 and Lucid data, meaning that languages of few color names in Lucid also had fewer color names in the GPT4 data. As mentioned above, GPT4 used more niche words for small categories. This was quantified by the average weighted log frequency which was lower for GPT4 data.
+
+
+\section{Human Data}
+Relative linguistics addresses the question whether language is shaped by thoughts or vice versa. To answer this question, much research has focused on the area of color terms because they have a direct physical correspondence. It was found that different languages use different numbers and constellations of color terms to subdivide color space. However, universal rules shaping these naming patterns were found and examined using, among others, the WCS dataset. \textcite{kayWorld2009} suspected that close cultural exchange between languages diminishes differences across languages as a globalization effect. Because of this in the WCS only languages spoken by small scale societies of limited cultural influence where examined. Industrialized countries were excluded from this data collection. They claimed to have found eleven BCT (equivalent to the English color names: \textit{black, white, red, yellow, green, blue, brown, orange, pink, purple, and gray}. They hypothesized that languages use these color categories or a subset of them. 
+
+The collected data on lucid partially confirm these findings. For a large number of languages, labeled earlier as the blue cluster, we found high similarity to the English naming pattern and the number of major color categories. The grue category in Vietnamese also adapts to the evolutionary hypothesis that new categories emerge by partitioning of old categories. 
+
+However, naming patterns of the languages previously grouped under the light blue cluster show major deviations. Most importantly, the additional universally present category \textit{light blue} shows a sophisticated division of the blue category. In Italian the blue category is even differentiated in three categories.
+In addition, further diversification occurs such as \textgreek{λαδι} - oil as a major category between green and brown for Greek or \textkorean{연두색} for light green in Korean.
+On the basis of these findings the limitation to the eleven BCT has to be rejected. Further, the preserved diversities across languages in spite of heavy exposure to cultural influence of internet users questions the hypothesized equalizing effect of globalization.
+As expected, we were able to partly systematize the occurrence of additional color terms such as the light blue category in a high number of languages.
+However, there were also other color categories emerging in single languages (e.g. \textgreek{λαδι} in greek) specific to the respective languages.
+
+All measures of data quality such as split half ARI of single languages and comparisons between recruiters are sufficiently high and allow to contextualize our data to the literature. 
+With minor exceptions the results for the single languages appear reasonable, ensuring the cleaning heuristics to work as expected.
+
+Fig. \ref{fig:entropy_plot} highlights that the human data, both from WCS and from Lucid, form a continuum of growing number of color terms with the Lucid data located at the higher end, containing significantly more color terms. 
+This confirms the hypothesis of \textcite{gibsonColor2017} that elevated contact to synthetic objects through industrialization drives the emergence and usage of more specific color terms. However, the mean ARI was significantly lower in all Lucid languages, indicating a more homogeneous data set overall. This in turn suggests a globalization effect in the industrialized languages. Finally, it should be noted that the cultural influence of globalization weakens diversity but does not completely eliminate it.
+
+
+
+% The absence of the white category is most likely due to the way we present the stimulus \ref{fig:col-trail}. The square of color is presented on a white page. When showing very light chips a side effect might be that they never meet exactly the white of the page right next to the stimulus. The task undeliberately turn into a distinction task which makes it easy for people to see the very light color.
+
+
+
+\section{Comparing Lucid - GPT4 Data}
+The experiment was conducted in an analog manner using GPT4 and GPT4-V as agents. This was mainly done for two reasons. As LLMs evolve and enhance their capabilities, reliance on them by people intensifies. LLMs provide multifaceted assistance, assuming important roles and even supplanting jobs.
+However, as LLMs are deep neural networks trained on large text corpora, we cannot be sure how exactly they work. Are they simulating human agents or behaving utterly different? At the same time LLMs can help to understand to what extend the perceptual environment can be recovered from language, which is a long standing problem in cognitive science.
+
+As expected, we found correlation in the number of color terms for the same languages in GPT4 and Lucid data. Languages of smaller color term vocabularies in the human data tend to have fewer BCT named by GPT4. This result clearly supports the hypothesis that language specific naming patterns are conserved in the respective texts and subsequently reproduced by LLMs. Examining the behaviour of e.g. GPT4 then indeed can help to disentangle the relationship of language and its influence on perception.
+
+However, we found fundamental differences between human and GPT4 data. The responding behaviour of GPT4 was much more deterministic on single chip level - almost robot-like, colloquially speaking. That means that GPT4 failed to mimic human-like behavior. Furthermore, GPT4 used much more niche color terms of lower usage frequency that did not occur in the Lucid data, indicating that GPT4 lacks common sense of what words should be used in an everyday conversation or what we referred to as BCT.
+
+Considering GPT4 as a multilingual agent significantly influenced by globalization, the data indeed showed notable effects. For instance, English color terms like mint appeared in languages where mint is not a native word. This suggests that in some cases GPT4 mixes up words from different languages and imports them when the languages are missing terms for a particular hue.
+
+
+
+% categories like mint imported from english
+
+
+% Usage of infrequent color terms:
+% GPT lacks common sense of which color terms are commonly used in an every day conversation.

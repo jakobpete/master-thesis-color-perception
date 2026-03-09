@@ -1,0 +1,62 @@
+\section{Data-Analysis}
+
+\subsection{Adjusted Rand Index}
+To detect differences in color naming patters between the tested languages we used the adjusted rand index (ARI).
+For every language we calculated the majority vote for all 330 color chips and transferred this naming pattern into a vector containing numeric representation of the winning color terms. This vector was then used to compute the ARI for each pair of languages using the scikit-learn implementation of the ARI \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html}}. 
+
+The ARI determines the similarity across cluster patterns which has been proven to be a reliable measure \parencite{rand1971objective}. It is adjusted for chance and takes a value between -1 and 1. A value of 1 indicates a perfect agreement between the two clusterings, whereas a value of 0 indicates a low expected similarity between two random clusterings \parencite{Hubert1985}. The resulting ARI matrix provides information about the similarity and dissimilarities between naming patterns of tested languages.
+
+
+\subsection{Multidimensional Scaling}
+We used multidimensional scaling (MDS) to project the ARI-matrix into a 2D space and therefore gather information about similarities and dissimilarities across languages as geometrical representation \parencite{carroll1998multidimensional}.
+To do so we used the \textit{scikit-learn }implementation \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.manifold.MDS.html}}.
+This implementation requires a dissimilarity matrix as an input. Thus we first had to convert the similarity matrix obtained from the ARI calculation into a dissimilarity matrix.
+
+
+\begin{itemize}
+    \item $S$ is the similarity matrix based on the Rand Index.
+    \item $D$ is the dissimilarity matrix.
+\end{itemize}
+
+\[
+D = 1 - S
+\]
+
+% ARI was used in previous color works (e.g. \cite{lindseyColor2014})
+% This approach appeared to be very sensitive to minor differences.
+% Especially near the boundaries between categories, the belonging of single chips is not very stable.
+% Therefore, the resulting MDS plot appeared not to be very informative.
+
+% In our second alignment approach, we aimed to be more robust against these minor differences.
+% After identifying the winning color term for each chip, we calculated the mean color chip for each color term.
+% \todo{not sure if first tranlated into CIE lab space?}
+% To compare languages, we then calculated the Euclidean distance between each color term in both languages.
+% We assumed that the color terms with the smallest distance between them are the categories that are most similar.
+% As a measure of similarity, we summed up all these distances \todo{Thats all??}
+% This distance matrix was then again projected into a 2D space using MDS\@.
+% By taking the means of each category, this analysis is more robust against minor differences in the color naming pattern.
+% It, therefore provides a more stable and informative MDS.
+
+\subsection{Entropy}
+Entropy in our case describes the uniformness of the participants answers. In Information theory entropy measures the uncertainty or unpredictability of information content. It quantifies the average amount of information produced by a stochastic source of data. High entropy means the information has high variability and is less predictable, while low entropy indicates a more predictable source of information.
+
+In our analysis, we compute the Shannon entropy, denoted as $H$, for a single color chip. This variable's entropy is calculated based on the probability distribution of each observed color term, denoted as $p_1, p_2, \ldots, p_n$, according to the formula:
+
+\begin{equation}
+H = -\sum_{i=1}^{n} p_i \log_2 p_i
+\end{equation}
+
+Here, $p_i$ signifies the probability of the occurrence of the $i$-th color term within the distribution. The base 2 logarithm implies that entropy is quantified in bits, reflecting the information content or uncertainty associated with the color terms' distribution.
+The exponent of the entropy can also count the number of possible states or configurations. Therefore, the exponent of the global entropy of a language is an estimate of the number of color terms available for this language. In Figure \ref{fig:entropy_plot} the exponent of the global entropy (number of color terms in the respective language) is plotted against the exponent of the local entropy (mean consensus on single chips).
+
+\subsection{Levenstein distance}
+The Levenstein distance, also known as edit distance, calculates how many single-character-edits (deletions, insertions, substitutions) have to be done to change one word in an other. For example the edit distance between 'grue' and 'blue' equals 2.
+During data cleaning we made use of "thefuzz"\footnote{\url{https://github.com/seatgeek/thefuzz}} a python packages that uses this calculation to create a measure of similarity between words.
+
+\subsection{K-means clustering}
+K-means clustering is an algorithm to subdivide data into k clusters optimized by a measure of distance. The calculations follows these steps: First, k cluster centers are initialized at random values. Second, all data points get assigned to the closest cluster center mostly using the euclidean distance. Third, new location of the cluster center is calculated by taking the mean of each cluster. Steps two and three get repeated until the assignments do not change anymore or the change is below a certain threshold. We used this method to find distinct clusters in the naming patterns of the human data.
+
+
+\subsection{Color Term Frequency}
+"wordfreq" \footnote{\url{https://github.com/rspeer/wordfreq}} is a python library that enables to look up the frequency of usage of words in a specified language based on a large dataset. This was used in the cleaning procedure to detect typos. All color terms of a score = 0 were considered to be possible typos.
+Furthermore, in Fig. \ref{fig:frequency_plot} we investigated the color term frequency found for GPT4 and human data to determine which one uses less frequent terms for the respective language.

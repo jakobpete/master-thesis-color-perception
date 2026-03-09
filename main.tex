@@ -1,0 +1,357 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacing, % Single line spacing, alternatives: singlespacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+% consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+% Font and language packages
+\usepackage{polyglossia}
+\setmainlanguage{english}
+% \setotherlanguages{arabic}
+\setotherlanguages{arabic, japanese, korean, thai, russian, ukrainian, greek} 
+
+\usepackage{fontspec}
+\newfontfamily\arabicfont[Script=Arabic]{Amiri}
+\newfontfamily\japaneseFont{IPAMincho} % or any font that supports Kanji, Hiragana, and Katakana
+\newcommand{\japaneseText}[1]{{\japaneseFont #1}}
+
+
+\newfontfamily\koreanfont{NanumGothic} % Supports Hangul
+\newfontfamily\thaifont{Norasi} % or any other font that supports Thai script
+\newfontfamily\cyrillicfont{Times New Roman} % Just as an example; use a font that supports Cyrillic
+\newfontfamily\greekfont{Times New Roman}
+
+
+% Linking and PDF metadata
+\usepackage{hyperref}
+
+% Removed inputenc and fontenc as they are not required with LuaLaTeX/XeLaTeX
+% \usepackage[utf8]{inputenc} % LuaLaTeX and XeLaTeX assume UTF-8 by default
+% \usepackage[T1]{fontenc} % Not needed with LuaLaTeX/XeLaTeX
+
+% Palatino font for text (optional)
+\usepackage{mathpazo}
+
+% Bibliography
+\usepackage[backend=biber,style=authoryear,natbib=true]{biblatex}
+\addbibresource{bibliography.bib}
+\usepackage{pdfpages}
+% Additional packages
+\usepackage{todonotes}
+\usepackage[autostyle=true]{csquotes} % For language-dependent quotes in the bibliography
+
+% For adjusting figure sizes and rotations
+\usepackage[export]{adjustbox}
+\usepackage{rotating}
+
+% For handling data tables
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+
+% Set the path to your images
+\graphicspath{{images/}}
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=2.5cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+\thesistitle{Analyzing the Impact of Globalization on Color Naming Patterns Across Languages through Online Recruitment and Large Language Models}
+% \thesistitle{Studying the Effect of Globalization on Color Perception using Multilingual Online Recruitment and Large Language Models} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Prof. Dr. Marc \textsc{Schönwiesner}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{Prof. Dr. Nori \textsc{Jacoby}} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{M. Sc. Biology} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Jakob \textsc{Niedermann}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Biological Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{University Leipzig} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{Fakultät für Lebenswissenschaften} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{AG Neurobiologie} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{Faculty of Biology} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.0\textheight}
+{\scshape\LARGE \univname\par}\vspace{0cm} % University name
+\textsc{\Large Master Thesis}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.3cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{1. Gutachter:} \\
+{\supname} \\ % Supervisor name - remove the \href bracket to remove the link
+\vspace{5mm}
+\emph{2. Gutachter:} \\
+{\examname}
+\end{flushright}
+\end{minipage}\\[1cm]
+ 
+% \vfill
+
+\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\textit{in the}\\[0.4cm]
+\groupname\\\deptname\\[0cm] % Research group name and department name
+ 
+% \vfill
+
+{\large \today}\\[0cm] % Date
+% \includegraphics{images/uni_leipzig_logo.png} % University/department logo - uncomment to place it
+ 
+% \vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+Hiermit erkläre ich, dass ich die vorliegende Arbeit selbständig verfasst habe und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Alle Stellen der Arbeit, die wörtlich oder sinngemäß aus Veröffentlichungen oder aus anderweitigen Quellen entnommen wurden, sind als solche kenntlich gemacht. 
+
+Diese Arbeit ist in gleicher oder ähnlicher Form noch bei keiner anderen Prüfungsbehörde eingereicht worden.
+
+\vspace{5mm}
+\noindent Unterschrift:\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line for the signaturehttps://www.overleaf.com/project/65af877d5c3a839be2c04913
+
+ \vspace{5mm}
+\noindent Ort, Datum:\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+\end{declaration}
+
+% \cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+%\vspace*{0.2\textheight}
+
+%\noindent\enquote{\itshape Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism.}\bigbreak
+
+%\hfill Dave Barry
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+Is my blue your celeste? 
+Although seeing the exact same physical colors, people of different languages use different terms to describe them. The influence of language and culture on perception is a longstanding problem in cognitive science and extensively studied e.g. in the World Color Survey. Berlin and Kay (1969) recruited participants speaking unwritten languages and asked them to describe a set of 330 Munsell color chips using color terms. They concluded that different languages use a subset or all of eleven "Basic" Color Terms. These categories are arranged according to strict evolutionary laws. Cross-lingual differences are hypothesized to decrease as a result of globalization, which explains the absence of a comprehensive and consistent data set for industrialized nations.
+
+This research project employs Lucid as a new recruiter for online experiments with a massively expanded range of 112 targetable countries and 73 languages. A free elicitation naming paradigm was used to collect data from 4,351 participants in 25 languages. Analysis of the data showed preserved structural differences in the naming pattern of participants heavily exposed to globalization effects through the internet across languages, specifically the expected cross-cultural variation within the color category "blue".
+Comparison to a dataset created using an analog procedure with GPT4 and GPT4-V as agents showed correlated naming pattern across languages. In addition, language specific differences are preserved in the responding behavior of GPT4. %However, GPT and GPT-4 agents use more color terms across languages compared with humans. 
+The results show how diverse recruiting, as well as the use of machine learning, can help to revisit classical cognitive science questions.
+
+
+
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+I wish to express my profound gratitude to Prof. Dr. Nori Jacoby, who has been an invaluable supervisor and mentor throughout this project. His continuous guidance and expertise have been crucial to the research and writing process. His enthusiasm for research is infectious, and I am fortunate to have absorbed some of it.
+I extend my thanks to Pol van Rijn for his mentorship in both the technical aspects and theoretical inspiration of this work. His willingness to dedicate so much time has significantly shaped the direction and quality of this thesis.
+My appreciation also goes out to all members of Prof. Dr. Nori Jacoby's research group, whose inclusive and ambitious environment has been incredibly motivating.
+I am grateful to my family, friends, and the 4,351 participants who took part in this study, each of whom has contributed immensely to this work.
+
+The findings discussed in this dissertation have been submitted as a conference paper for CogSci and published as a preprint, available at: \url{https://osf.io/preprints/psyarxiv/3jvxw}, titled "Studying the Effect of Globalization on Color Perception using Multilingual Online Recruitment and Large Language Models."
+
+
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+
+\textbf{BCT} & Basic Color Terms\\
+\textbf{ARI} & Adjusted Rand Index\\
+\textbf{MDS} & Multidimensional Scaling\\
+\textbf{WCS} & World Color Survey\\
+\textbf{SD} & Standard Deviation\\
+\textbf{LLM} & Large Language Model\\
+\textbf{VLM} & Vision Language Models\\
+\textbf{MTurk} & amazon mechanical turk\\
+
+\end{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+%Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+%\end{constants}
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+
+%\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+
+%$a$ & distance & \si{\meter} \\
+%$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+%Symbol & Name & Unit \\
+
+%\addlinespace % Gap to separate the Roman symbols from the Greek
+
+%$\omega$ & angular frequency & \si{\radian} \\
+
+%\end{symbols}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\dedicatory{} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+
+\chapter{Introduction}
+\input{introduction/introduction2}
+\input{introduction/Vision}
+% \input{introduction/Color-Terms-Background}
+\input{introduction/Color-Terms-Background2}
+\input{introduction/WEIRD-participants}
+\input{introduction/online_experiments}
+\input{introduction/significance}
+
+
+\chapter{Methods}
+\input{Methods/Methods}
+\input{Methods/visualisation}
+\input{Methods/DataAnalysis}
+\input{Methods/experimental_hypothesis}
+
+
+\chapter{Results}
+% \input{results/participants}
+\input{results/human-data}
+% \input{results/compare_human-gpt}
+\input{results/compare_humans_gpt_new}
+
+
+\chapter{Discussion}
+\input{Discussion/discussion}
+\input{Discussion/Limitations}
+
+
+\input{sublementary/sublementary_material}
+
+
+%\bibliographystyle{apacite}
+\printbibliography[heading=bibintoc]
+
+%\setlength{\bibleftmargin}{.125in}
+%\setlength{\bibindent}{-\bibleftmargin}
+
+%\listoffigures
+%\bibliography{bibliography}
+\end{document}
