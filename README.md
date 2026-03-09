@@ -33,6 +33,7 @@ can help to revisit classical cognitive science questions.
 main.tex puts all subsections into one document to compile.
 Subsections are organized in singe folders.
 Master_Thesis_Color_Terms.pdf is the compiled pdf document.
+📄 **Thesis PDF:** [Download](Master_Thesis_Color_Terms.pdf)
 
 ---
 
