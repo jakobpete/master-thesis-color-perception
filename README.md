@@ -27,3 +27,9 @@ GPT4. The results show how diverse recruiting, as well as the use of machine lea
 can help to revisit classical cognitive science questions.
 
 ---
+
+## File Structure
+
+main.tex puts all subsections into one document to compile.
+Subsections are organized in singe folders.
+Master_Thesis_Color_Terms.pdf is the compiled pdf document.
